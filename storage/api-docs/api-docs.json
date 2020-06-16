@@ -1,0 +1,1106 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Gestion Reportes",
+        "contact": {
+            "email": "antony.rodriguez@mimco.com.pe"
+        },
+        "version": "1"
+    },
+    "paths": {
+        "/GestionReportes/public/index.php/segu_grup": {
+            "post": {
+                "tags": [
+                    "Seguimiento Grupos"
+                ],
+                "summary": "Permite listar los grupos para visualizar su avance.",
+                "operationId": "App\\Http\\Controllers\\GruposController::segu_grup",
+                "parameters": [
+                    {
+                        "name": "intIdProy",
+                        "in": "path",
+                        "description": "Codigo de Proyecto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": 175
+                    },
+                    {
+                        "name": "intIdProyTarea",
+                        "in": "path",
+                        "description": "Codigo Programa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": -1
+                    },
+                    {
+                        "name": "intIdProyPaquete",
+                        "in": "path",
+                        "description": "Codigo Grupo",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": -1
+                    },
+                    {
+                        "name": "intIdArmadores",
+                        "in": "path",
+                        "description": "Codigo Armadores",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": -1
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "varNumeDni": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "intIdProy": "175",
+                                    "intIdTipoProducto": "1",
+                                    "intIdProyTarea": "-1",
+                                    "intIdProyPaquete": "-1",
+                                    "intIdArmadores": "-1"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sin Mensaje"
+                    },
+                    "407": {
+                        "description": "El Documento de identidad ingresado no se encuentra registrado."
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionReportes/public/index.php/list_ot_o_todas_ot_vers2": {
+            "post": {
+                "tags": [
+                    "Reportes"
+                ],
+                "summary": "lista ot o todos las ot",
+                "operationId": "App\\Http\\Controllers\\ReportesController::list_ot_o_todas_ot_vers2",
+                "parameters": [
+                    {
+                        "name": "v_varintIdProy",
+                        "in": "path",
+                        "description": "ingrese el id proyectos , puede ser uno o mas",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "126"
+                    },
+                    {
+                        "name": "v_intIdTipoProducto",
+                        "in": "path",
+                        "description": "ingrese el id del tipo producto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "v_unidad",
+                        "in": "path",
+                        "description": "ingrese el id ingrese la unidad",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "v_opcion",
+                        "in": "path",
+                        "description": "ingrese la opcion",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "v_fech_inic",
+                        "in": "path",
+                        "description": "ingrese la fecha de inicio",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "v_fech_fina",
+                        "in": "path",
+                        "description": "ingrese la fecha de final",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "v_varintIdProy": {
+                                        "type": "string"
+                                    },
+                                    "v_intIdTipoProducto": {
+                                        "type": "string"
+                                    },
+                                    "v_unidad": {
+                                        "type": "string"
+                                    },
+                                    "v_opcion": {
+                                        "type": "string"
+                                    },
+                                    "v_fech_inic": {
+                                        "type": "string"
+                                    },
+                                    "v_fech_fina": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "v_varintIdProy": "126",
+                                    "v_intIdTipoProducto": "1",
+                                    "v_unidad": "1",
+                                    "v_opcion": "1",
+                                    "v_fech_inic": "",
+                                    "v_fech_fina": ""
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sin Mensaje"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionReportes/public/index.php/list_ot_o_todas_ot": {
+            "post": {
+                "tags": [
+                    "Reportes"
+                ],
+                "summary": "lista ot o todos las ot",
+                "operationId": "App\\Http\\Controllers\\ReportesController::list_ot_o_todas_ot",
+                "parameters": [
+                    {
+                        "name": "m_intIdProy",
+                        "in": "path",
+                        "description": "ingrese el id proyectos , puede ser uno o mas",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "126"
+                    },
+                    {
+                        "name": "m_intIdTipoProducto",
+                        "in": "path",
+                        "description": "ingrese el id del tipo producto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "v_fech_inic",
+                        "in": "path",
+                        "description": "ingrese la fecha de inicio",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "v_fech_fina",
+                        "in": "path",
+                        "description": "ingrese la fecha de final",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "m_unidad",
+                        "in": "path",
+                        "description": "ingrese la unidad",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "m_intIdProy": {
+                                        "type": "string"
+                                    },
+                                    "m_intIdTipoProducto": {
+                                        "type": "string"
+                                    },
+                                    "m_unidad": {
+                                        "type": "string"
+                                    },
+                                    "v_fech_inic": {
+                                        "type": "string"
+                                    },
+                                    "v_fech_fina": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "m_intIdProy": "126",
+                                    "m_intIdTipoProducto": "1",
+                                    "v_fech_inic": "",
+                                    "v_fech_fina": "",
+                                    "m_unidad": "1"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Listar la OT o todas las OT"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionReportes/public/index.php/repo_zona_vers2": {
+            "post": {
+                "tags": [
+                    "Reportes"
+                ],
+                "summary": "Reporte de zona",
+                "operationId": "App\\Http\\Controllers\\ReportesController::repo_zona_vers2",
+                "parameters": [
+                    {
+                        "name": "v_intIdProy",
+                        "in": "path",
+                        "description": "ingrese el id proyectos , puede ser uno o mas",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "126"
+                    },
+                    {
+                        "name": "v_intIdTipoProducto",
+                        "in": "path",
+                        "description": "ingrese el id del tipo producto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "v_fech_inic",
+                        "in": "path",
+                        "description": "ingrese la fecha de inicio",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "v_fech_fina",
+                        "in": "path",
+                        "description": "ingrese la fecha de final",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "v_unidad",
+                        "in": "path",
+                        "description": "ingrese la unidad",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "v_opcion",
+                        "in": "path",
+                        "description": "ingrese la opcion",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "v_intIdProy": {
+                                        "type": "string"
+                                    },
+                                    "v_intIdTipoProducto": {
+                                        "type": "string"
+                                    },
+                                    "v_unidad": {
+                                        "type": "string"
+                                    },
+                                    "v_opcion": {
+                                        "type": "string"
+                                    },
+                                    "v_fech_inic": {
+                                        "type": "string"
+                                    },
+                                    "v_fech_fina": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "v_intIdProy": "126",
+                                    "v_intIdTipoProducto": "1",
+                                    "v_opcion": "1",
+                                    "v_unidad": "1",
+                                    "v_fech_inic": "",
+                                    "v_fech_fina": "",
+                                    "m_unidad": "1"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Listar la OT o todas las OT"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionReportes/public/index.php/repo_zona": {
+            "post": {
+                "tags": [
+                    "Reportes"
+                ],
+                "summary": "Reporte de zona",
+                "operationId": "App\\Http\\Controllers\\ReportesController::repo_zona",
+                "parameters": [
+                    {
+                        "name": "m_intIdProy",
+                        "in": "path",
+                        "description": "ingrese el id proyectos , puede ser uno o mas",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "126"
+                    },
+                    {
+                        "name": "m_intIdTipoProducto",
+                        "in": "path",
+                        "description": "ingrese el id del tipo producto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "m_fech_inic",
+                        "in": "path",
+                        "description": "ingrese la fecha de inicio",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "m_fech_fina",
+                        "in": "path",
+                        "description": "ingrese la fecha de final",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "m_unidad",
+                        "in": "path",
+                        "description": "ingrese la unidad",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "m_intIdProy": {
+                                        "type": "string"
+                                    },
+                                    "m_intIdTipoProducto": {
+                                        "type": "string"
+                                    },
+                                    "m_unidad": {
+                                        "type": "string"
+                                    },
+                                    "m_fech_inic": {
+                                        "type": "string"
+                                    },
+                                    "m_fech_fina": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "m_intIdProy": "126",
+                                    "m_intIdTipoProducto": "1",
+                                    "m_unidad": "1",
+                                    "m_fech_inic": "",
+                                    "m_fech_fina": ""
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Listar la OT o todas las OT"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionReportes/public/index.php/repo_prog": {
+            "post": {
+                "tags": [
+                    "Reportes"
+                ],
+                "summary": "Reporte de programa",
+                "operationId": "App\\Http\\Controllers\\ReportesController::repo_prog",
+                "parameters": [
+                    {
+                        "name": "v_intIdProy",
+                        "in": "path",
+                        "description": "ingrese el id proyectos , puede ser uno o mas",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "126"
+                    },
+                    {
+                        "name": "v_intIdTipoProducto",
+                        "in": "path",
+                        "description": "ingrese el id del tipo producto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "v_intIdProyZona",
+                        "in": "path",
+                        "description": "ingrese el id del proyecto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "v_fech_inic",
+                        "in": "path",
+                        "description": "ingrese la fecha de inicio",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "v_fech_fina",
+                        "in": "path",
+                        "description": "ingrese la fecha de final",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "v_unidad",
+                        "in": "path",
+                        "description": "ingrese la unidad",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "v_opcion",
+                        "in": "path",
+                        "description": "ingrese la opcion",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "v_intIdProy": {
+                                        "type": "string"
+                                    },
+                                    "v_intIdTipoProducto": {
+                                        "type": "string"
+                                    },
+                                    "v_unidad": {
+                                        "type": "string"
+                                    },
+                                    "v_opcion": {
+                                        "type": "string"
+                                    },
+                                    "v_fech_inic": {
+                                        "type": "string"
+                                    },
+                                    "v_fech_fina": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "v_intIdProy": "126",
+                                    "v_intIdTipoProducto": "1",
+                                    "v_unidad": "1",
+                                    "v_fech_inic": "",
+                                    "v_fech_fina": "",
+                                    "v_opcion": "1"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Reporte de programas"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionReportes/public/index.php/repo_grup": {
+            "post": {
+                "tags": [
+                    "Reportes"
+                ],
+                "summary": "Reporte de programa",
+                "operationId": "App\\Http\\Controllers\\ReportesController::repo_grup",
+                "parameters": [
+                    {
+                        "name": "v_intIdProy",
+                        "in": "path",
+                        "description": "ingrese el id proyectos , puede ser uno o mas",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "126"
+                    },
+                    {
+                        "name": "v_intIdTipoProducto",
+                        "in": "path",
+                        "description": "ingrese el id del tipo producto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "v_intIdProyZona",
+                        "in": "path",
+                        "description": "ingrese el id del proyecto zona",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "v_intIdProyTarea",
+                        "in": "path",
+                        "description": "ingrese el id del proyecto tarea",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "v_fech_inic",
+                        "in": "path",
+                        "description": "ingrese la fecha de inicio",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "v_fech_fina",
+                        "in": "path",
+                        "description": "ingrese la fecha de final",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "v_unidad",
+                        "in": "path",
+                        "description": "ingrese la unidad",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "v_opcion",
+                        "in": "path",
+                        "description": "ingrese la opcion",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "v_intIdProy": {
+                                        "type": "string"
+                                    },
+                                    "v_intIdTipoProducto": {
+                                        "type": "string"
+                                    },
+                                    "v_intIdProyZona": {
+                                        "type": "string"
+                                    },
+                                    "v_intIdProyTarea": {
+                                        "type": "string"
+                                    },
+                                    "v_unidad": {
+                                        "type": "string"
+                                    },
+                                    "v_opcion": {
+                                        "type": "string"
+                                    },
+                                    "v_fech_inic": {
+                                        "type": "string"
+                                    },
+                                    "v_fech_fina": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "v_intIdProy": "126",
+                                    "v_intIdTipoProducto": "1",
+                                    "v_intIdProyZona": "1",
+                                    "v_intIdProyTarea": "1",
+                                    "v_unidad": "1",
+                                    "v_fech_inic": "",
+                                    "v_fech_fina": "",
+                                    "v_opcion": "1"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Reporte de programas"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionReportes/public/index.php/repo_codi": {
+            "post": {
+                "tags": [
+                    "Reportes"
+                ],
+                "summary": "Reporte de programa",
+                "operationId": "App\\Http\\Controllers\\ReportesController::repo_codi",
+                "parameters": [
+                    {
+                        "name": "v_intIdProy",
+                        "in": "path",
+                        "description": "ingrese el id proyectos , puede ser uno o mas",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "126"
+                    },
+                    {
+                        "name": "v_intIdTipoProducto",
+                        "in": "path",
+                        "description": "ingrese el id del tipo producto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "v_intIdProyZona",
+                        "in": "path",
+                        "description": "ingrese el id del proyecto zona",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "v_intIdProyTarea",
+                        "in": "path",
+                        "description": "ingrese el id del proyecto tarea",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "v_intIdProyPaquete",
+                        "in": "path",
+                        "description": "ingrese el id del proyecto tarea",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "v_fech_inic",
+                        "in": "path",
+                        "description": "ingrese la fecha de inicio",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "v_fech_fina",
+                        "in": "path",
+                        "description": "ingrese la fecha de final",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "v_unidad",
+                        "in": "path",
+                        "description": "ingrese la unidad",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "v_intIdProy": {
+                                        "type": "string"
+                                    },
+                                    "v_intIdTipoProducto": {
+                                        "type": "string"
+                                    },
+                                    "v_intIdProyZona": {
+                                        "type": "string"
+                                    },
+                                    "v_intIdProyTarea": {
+                                        "type": "string"
+                                    },
+                                    "v_intIdProyPaquete": {
+                                        "type": "string"
+                                    },
+                                    "v_unidad": {
+                                        "type": "string"
+                                    },
+                                    "v_fech_inic": {
+                                        "type": "string"
+                                    },
+                                    "v_fech_fina": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "v_intIdProy": "126",
+                                    "v_intIdTipoProducto": "1",
+                                    "v_intIdProyZona": "1",
+                                    "v_intIdProyTarea": "1",
+                                    "v_unidad": "1",
+                                    "v_fech_inic": "",
+                                    "v_fech_fina": ""
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Reporte de codigo"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        },
+        "/GestionReportes/public/index.php/gsrepo_store_valor": {
+            "post": {
+                "tags": [
+                    "Reportes"
+                ],
+                "summary": "Reporte de programa",
+                "operationId": "App\\Http\\Controllers\\ReportesController::gsrepo_store_valor",
+                "parameters": [
+                    {
+                        "name": "v_intIdProy",
+                        "in": "path",
+                        "description": "reporte de store valorizacion",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "126"
+                    },
+                    {
+                        "name": "v_intIdTipoProducto",
+                        "in": "path",
+                        "description": "ingrese el id del tipo producto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "v_intIdTipoEtapa",
+                        "in": "path",
+                        "description": "ingrese el id del tipo etapa",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "v_intIdPlanta",
+                        "in": "path",
+                        "description": "ingrese el id de la planta",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "v_strCodigos",
+                        "in": "path",
+                        "description": "ingrese el codigo de elemento",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "v_intIdContra",
+                        "in": "path",
+                        "description": "ingrese el id del contratista",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "v_intIdSemaIni",
+                        "in": "path",
+                        "description": "ingrese ingrese el valor de la semana inicio (-1 todos)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "v_intIdSemaFin",
+                        "in": "path",
+                        "description": "ingrese ingrese el valor de la semana final (-1 todos)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "v_TipoReporte",
+                        "in": "path",
+                        "description": "ingrese ingrese el tipo de reporte",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "v_intIdproy": {
+                                        "type": "string"
+                                    },
+                                    "v_intIdTipoProducto": {
+                                        "type": "string"
+                                    },
+                                    "v_intIdTipoEtapa": {
+                                        "type": "string"
+                                    },
+                                    "v_intIdPlanta": {
+                                        "type": "string"
+                                    },
+                                    "v_intIdEtapa": {
+                                        "type": "string"
+                                    },
+                                    "v_strCodigos": {
+                                        "type": "string"
+                                    },
+                                    "v_intIdContra": {
+                                        "type": "string"
+                                    },
+                                    "v_intIdSemaIni": {
+                                        "type": "string"
+                                    },
+                                    "v_intIdSemaFin": {
+                                        "type": "string"
+                                    },
+                                    "v_TipoReporte": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "v_intIdproy": "-1",
+                                    "v_intIdTipoProducto": "-1",
+                                    "v_intIdTipoEtapa": "1",
+                                    "v_intIdPlanta": "-1",
+                                    "v_intIdEtapa": "-1",
+                                    "v_strCodigos": "",
+                                    "v_intIdContra": "-1",
+                                    "v_intIdSemaIni": "1",
+                                    "v_intIdSemaFin": "2",
+                                    "v_TipoReporte": "1"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "report de store de valorizacion"
+                    },
+                    "404": {
+                        "description": "No se encuentra el metodo"
+                    }
+                }
+            }
+        }
+    }
+}
